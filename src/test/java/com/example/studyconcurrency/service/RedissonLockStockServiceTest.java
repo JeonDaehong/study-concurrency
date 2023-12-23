@@ -2,11 +2,13 @@ package com.example.studyconcurrency.service;
 
 import com.example.studyconcurrency.domain.Stock;
 import com.example.studyconcurrency.facade.LettuceLockStockFacade;
+import com.example.studyconcurrency.facade.RedissonLockStockFacade;
 import com.example.studyconcurrency.repository.StockRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -14,10 +16,11 @@ import java.util.concurrent.Executors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RedissionLockStockServiceTest {
+@SpringBootTest
+public class RedissonLockStockServiceTest {
 
     @Autowired
-    private LettuceLockStockFacade lettuceLockStockFacade;
+    private RedissonLockStockFacade redissonLockStockFacade;
 
     @Autowired
     private StockRepository stockRepository;
@@ -41,7 +44,7 @@ public class RedissionLockStockServiceTest {
         for ( int i=0; i<threadCount; i++ ) {
             executorService.submit(() -> {
                 try {
-                    lettuceLockStockFacade.decrease(1L, 1L);
+                    redissonLockStockFacade.decrease(1L, 1L);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 } finally {
