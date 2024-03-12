@@ -6,12 +6,12 @@
 
 ## 현재 공부 상황
 
-- [x] Syncronized 활용
-- [x] 비관적 락 활용
-- [x] 낙관적 락 활용
-- [x] 네임드 락 활용
-- [x] Redis Lettuce 스핀 락 방식 활용
-- [x] Redis Redisson 락 활용
+- [x] **Syncronized 활용**
+- [x] **비관적 락 활용**
+- [x] **낙관적 락 활용**
+- [x] **네임드 락 활용**
+- [x] **Redis Lettuce 스핀 락 방식 활용**
+- [x] **Redis Redisson 락 활용**
 
 <br>
 
